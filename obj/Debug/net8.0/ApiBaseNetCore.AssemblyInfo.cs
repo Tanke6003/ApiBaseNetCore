@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiBaseNetCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf9794b70a527b0e76cff94c092dceb13db4efb1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41df3fc34ee25541359ec7e5305d8ad6b93c7bfb")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiBaseNetCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiBaseNetCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
