@@ -2,7 +2,7 @@
 
 using Application.Interfaces;
 using Domain.Dtos;
-using Infractructure.Interfaces.Repository;
+using Infrastructure.Interfaces.Repository;
 
 namespace Application.Services
 {

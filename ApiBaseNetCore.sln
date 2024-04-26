@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiBaseNetCore", "ApiBaseNetCore.csproj", "{5BA8422C-4B1E-47B8-9EDB-A63ED6D39A04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiBaseNetCore", "ApiBaseNetCore\ApiBaseNetCore.csproj", "{5BA8422C-4B1E-47B8-9EDB-A63ED6D39A04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiBaseNetCoreTest", "ApiBaseNetCoreTest\ApiBaseNetCoreTest.csproj", "{248A2700-1970-464A-BEDF-CE9B443B6054}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +20,9 @@ Global
 		{5BA8422C-4B1E-47B8-9EDB-A63ED6D39A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BA8422C-4B1E-47B8-9EDB-A63ED6D39A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BA8422C-4B1E-47B8-9EDB-A63ED6D39A04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{248A2700-1970-464A-BEDF-CE9B443B6054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{248A2700-1970-464A-BEDF-CE9B443B6054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{248A2700-1970-464A-BEDF-CE9B443B6054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{248A2700-1970-464A-BEDF-CE9B443B6054}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

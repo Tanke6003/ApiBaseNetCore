@@ -3,8 +3,8 @@
 
 using System.Data;
 using Domain.Dtos;
-using Infractructure.Interfaces;
-using Infractructure.Interfaces.Repository;
+using Infrastructure.Interfaces;
+using Infrastructure.Interfaces.Repository;
 
 
 namespace Infractructure.Repository{
@@ -12,11 +12,10 @@ namespace Infractructure.Repository{
     public class UserRepository: IUserRepository{
 
         private IConnectionDB _connectionDB;
-        private IEncrypt _encrypt;
+    
 
-        public UserRepository(IConnectionDB connectionDB, IEncrypt encrypt){
+        public UserRepository(IConnectionDB connectionDB){
             _connectionDB = connectionDB;
-            _encrypt = encrypt;
         }
 
         public List<UserDto> GetUsers(){

@@ -8,7 +8,7 @@ namespace Infrastructure.Interfaces
         string GenerateToken(JWTOptionsDto options);
         JWTOptionsDto DecodeToken(string token);
 
-        
+
         
     }
 }

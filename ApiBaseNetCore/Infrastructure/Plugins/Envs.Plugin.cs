@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Plugins
 {
-    public class Envs : Infractructure.Interfaces.plugins.IEnvs
+    public class Envs : Infrastructure.Interfaces.plugins.IEnvs
     {
         public string GetEnv(string key)
         {

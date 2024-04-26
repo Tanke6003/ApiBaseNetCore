@@ -1,5 +1,5 @@
 
-namespace Infractructure.Interfaces.plugins
+namespace Infrastructure.Interfaces.plugins
 {
     public interface IEnvs
     {

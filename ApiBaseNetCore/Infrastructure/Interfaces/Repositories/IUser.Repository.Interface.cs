@@ -1,7 +1,7 @@
 
 using Domain.Dtos;
 
-namespace Infractructure.Interfaces.Repository{
+namespace Infrastructure.Interfaces.Repository{
     public interface IUserRepository{
         
         List<UserDto> GetUsers();

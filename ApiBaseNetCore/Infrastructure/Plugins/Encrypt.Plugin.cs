@@ -1,7 +1,7 @@
 
 
 
-using Infractructure.Interfaces;
+using Infrastructure.Interfaces;
 
 namespace Infrastructure.Plugins
 {

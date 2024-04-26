@@ -1,7 +1,7 @@
-using Infractructure.Interfaces;
+using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Infractructure.Interfaces.plugins;
-using Infractructure.Interfaces.Repository;
+using Infrastructure.Interfaces.plugins;
+using Infrastructure.Interfaces.Repository;
 using Infractructure.Plugins;
 using Infractructure.Repository;
 using Infrastructure.Plugins;
@@ -21,7 +21,7 @@ builder.Services.AddScoped<IConnectionDB, MsSqlConnectionDB>(provider => new MsS
 builder.Services.AddScoped<IEncrypt, Encrypt64>(provider => new Encrypt64());
 
 // Add Repositories
-builder.Services.AddScoped<IUserRepository, UserRepository>(provider => new UserRepository(provider.GetRequiredService<IConnectionDB>(), provider.GetRequiredService<IEncrypt>()));
+builder.Services.AddScoped<IUserRepository, UserRepository>(provider => new UserRepository(provider.GetRequiredService<IConnectionDB>()));
 
 // Add Services
 builder.Services.AddScoped<IUserService, UserService>(provider => new UserService(provider.GetRequiredService<IUserRepository>()));
