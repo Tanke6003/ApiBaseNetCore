@@ -1,9 +1,9 @@
 using System.Data;
-using Infrastructure.Interfaces;
+using ApiBaseNetCore.Infrastructure.Interfaces;
 using Microsoft.Data.SqlClient;
 
 
-namespace Infractructure.Plugins
+namespace ApiBaseNetCore.Infractructure.Plugins
 {
 
     public class MsSqlConnectionDB : IConnectionDB

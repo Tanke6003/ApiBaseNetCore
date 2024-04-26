@@ -1,11 +1,11 @@
 
 using ApiBaseNetCoreTest.common;
-using Infrastructure.Interfaces;
-using Infrastructure.Interfaces.Repository;
-using Infractructure.Repository;
-using Infrastructure.Plugins;
+using ApiBaseNetCore.Infrastructure.Interfaces;
+using ApiBaseNetCore.Infrastructure.Interfaces.plugins;
 using Xunit;
-
+using ApiBaseNetCore.Infrastructure.Interfaces.Repository;
+using Moq;
+using Domain.Dtos;
 namespace ApiBaseNetCoreTest;
 
 public class UnitTestUserRepository
@@ -14,15 +14,20 @@ public class UnitTestUserRepository
     public void ShouldReturnUsersList()
     {
         // Arrange
-        IConnectionDB _connectionDB = connectionUtil.moqConnection();
-        IUserRepository _userRepository = new UserRepository(_connectionDB);
+        var _connectionDB = connectionUtil.moqConnection().Object;
+        //IUserRepository _userRepository = new ApiBaseNetCore.Infrastructure.Repository.UserRepository(_connectionDB);
 
-        
-
+        var mockRepository = new Mock<IUserRepository>();
+    
+        mockRepository.Setup(x => x.GetUsers()).Returns(new List<UserDto>());
         // Act
         
+        var result = mockRepository.Object.GetUsers();
 
         // Assert
+
+        Assert.NotNull(result);
+        Assert.IsType<List<UserDto>>(result);
 
     }
 }

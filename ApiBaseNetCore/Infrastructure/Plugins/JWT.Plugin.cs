@@ -1,14 +1,12 @@
-
-
-using System.ComponentModel;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using ApiBaseNetCore.Infrastructure.Interfaces;
 using Domain.Dtos;
-using Infrastructure.Interfaces;
+
 using Microsoft.IdentityModel.Tokens;
 
-namespace Infrastructure.Plugins
+namespace ApiBaseNetCore.Infrastructure.Plugins
 {
     public class JWTPlugin : IJwt
     {

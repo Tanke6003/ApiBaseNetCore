@@ -1,9 +1,9 @@
 
 
 
-using Infrastructure.Interfaces;
+using ApiBaseNetCore.Infrastructure.Interfaces;
 
-namespace Infrastructure.Plugins
+namespace ApiBaseNetCore.Infrastructure.Plugins
 {
     public class Encrypt64: IEncrypt
     {

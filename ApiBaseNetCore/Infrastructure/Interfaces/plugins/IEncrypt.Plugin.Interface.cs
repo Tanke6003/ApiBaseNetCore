@@ -1,7 +1,7 @@
 
 
 
-namespace Infrastructure.Interfaces
+namespace ApiBaseNetCore.Infrastructure.Interfaces
 {
     public interface IEncrypt
     {

@@ -1,7 +1,7 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 
-namespace Infrastructure.Interfaces
+namespace ApiBaseNetCore.Infrastructure.Interfaces
 {
     public interface IConnectionDB
     {

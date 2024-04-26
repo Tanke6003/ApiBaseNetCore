@@ -1,17 +1,18 @@
-using Infrastructure.Interfaces;
+using ApiBaseNetCore.Infrastructure.Interfaces;
+using ApiBaseNetCore.Infrastructure.Interfaces.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Infrastructure.Interfaces.plugins;
-using Infrastructure.Interfaces.Repository;
-using Infractructure.Plugins;
-using Infractructure.Repository;
-using Infrastructure.Plugins;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Application.Services;
 using Application.Interfaces;
-
+using ApiBaseNetCore.Infrastructure.Interfaces.plugins;
+using ApiBaseNetCore.Infrastructure.Plugins;
+using ApiBaseNetCore.Infractructure.Plugins;
+using ApiBaseNetCore.Infrastructure.Repository;
+using ApiBaseNetCore.Infrastructure.Interfaces.Repository;
+// Create a new web application
 var builder = WebApplication.CreateBuilder(args);
 // do a function to get server, database, user and password from environment variables
 

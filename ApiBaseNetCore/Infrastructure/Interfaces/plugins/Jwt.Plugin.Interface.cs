@@ -1,7 +1,7 @@
 
 using Domain.Dtos;
 
-namespace Infrastructure.Interfaces
+namespace ApiBaseNetCore.Infrastructure.Interfaces
 {
     public interface IJwt
     {

@@ -2,12 +2,13 @@
 
 
 using System.Data;
+using ApiBaseNetCore.Infrastructure.Interfaces;
+using ApiBaseNetCore.Infrastructure.Interfaces.Repository;
 using Domain.Dtos;
-using Infrastructure.Interfaces;
-using Infrastructure.Interfaces.Repository;
 
 
-namespace Infractructure.Repository{
+
+namespace ApiBaseNetCore.Infrastructure.Repository{
 
     public class UserRepository: IUserRepository{
 

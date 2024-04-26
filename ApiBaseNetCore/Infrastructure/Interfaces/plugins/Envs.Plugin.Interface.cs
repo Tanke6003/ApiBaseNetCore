@@ -1,5 +1,5 @@
 
-namespace Infrastructure.Interfaces.plugins
+namespace ApiBaseNetCore.Infrastructure.Interfaces.plugins
 {
     public interface IEnvs
     {

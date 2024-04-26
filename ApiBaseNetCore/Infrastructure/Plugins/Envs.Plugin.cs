@@ -1,8 +1,11 @@
 
 
-namespace Infrastructure.Plugins
+using ApiBaseNetCore.Infrastructure.Interfaces.plugins;
+
+
+namespace ApiBaseNetCore.Infrastructure.Plugins
 {
-    public class Envs : Infrastructure.Interfaces.plugins.IEnvs
+    public class Envs : IEnvs
     {
         public string GetEnv(string key)
         {

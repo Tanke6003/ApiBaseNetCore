@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using Infrastructure.Interfaces;
-using Infrastructure.Interfaces.plugins;
-using Infrastructure.Interfaces;
-using Infrastructure.Plugins;
 using Microsoft.AspNetCore.Mvc;
+using ApiBaseNetCore.Infrastructure.Interfaces;
+using ApiBaseNetCore.Infrastructure.Plugins;
+using ApiBaseNetCore.Infrastructure.Interfaces.plugins;
 
 namespace ApiBaseNetCore.Presentation.Controllers
 {

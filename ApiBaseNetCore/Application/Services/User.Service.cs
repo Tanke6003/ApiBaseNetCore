@@ -1,8 +1,9 @@
 
 
+using ApiBaseNetCore.Infrastructure.Interfaces.Repository;
 using Application.Interfaces;
 using Domain.Dtos;
-using Infrastructure.Interfaces.Repository;
+
 
 namespace Application.Services
 {
