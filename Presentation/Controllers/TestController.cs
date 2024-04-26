@@ -4,6 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Infractructure.Interfaces;
+using Infractructure.Interfaces.plugins;
+using Infrastructure.Interfaces;
+using Infrastructure.Plugins;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiBaseNetCore.Presentation.Controllers
@@ -44,5 +47,29 @@ namespace ApiBaseNetCore.Presentation.Controllers
                 return BadRequest(ex.Message);
             }
         }
-    }   
+        [HttpGet("CreateToken")]
+        public ActionResult CreateToken()
+        {
+            try
+            {
+                IEnvs _envs = new Envs();
+                IJwt _jwt = new JWTPlugin();
+                string result = _jwt.GenerateToken(new Domain.Dtos.JWTOptionsDto
+                {
+                    UserId = 1,
+                    NTUser = "NTUser",
+                    RoleId = 1,
+                    ExpireDate = DateTime.Now.AddHours(1),
+                    SecretKey = _envs.GetEnv("SecretKey")
+                });
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+    }
+
+
 }
