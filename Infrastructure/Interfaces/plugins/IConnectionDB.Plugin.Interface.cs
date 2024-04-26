@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace Domain.Interfaces
+namespace Infractructure.Interfaces
 {
     public interface IConnectionDB
     {

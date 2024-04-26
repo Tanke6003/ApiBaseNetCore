@@ -1,5 +1,5 @@
 using System.Data;
-using Domain.Interfaces;
+using Infractructure.Interfaces;
 using Microsoft.Data.SqlClient;
 
 

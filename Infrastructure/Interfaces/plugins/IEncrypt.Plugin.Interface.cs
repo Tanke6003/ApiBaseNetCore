@@ -1,7 +1,7 @@
 
 
 
-namespace Domain.Interfaces
+namespace Infractructure.Interfaces
 {
     public interface IEncrypt
     {
