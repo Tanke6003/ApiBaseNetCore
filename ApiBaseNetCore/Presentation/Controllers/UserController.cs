@@ -20,7 +20,7 @@ namespace ApiBaseNetCore.Presentation.Controllers
       
         [Authorize]
         [HttpGet("GetAllUsers")]
-        public ActionResult GetAllUsers(){
+        public ActionResult<List<Domain.Dtos.UserDto>> GetAllUsers(){
             try
             {
                 List<Domain.Dtos.UserDto> users = _userService.GetUsers();

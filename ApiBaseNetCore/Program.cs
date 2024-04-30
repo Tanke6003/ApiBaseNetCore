@@ -28,14 +28,14 @@ builder.Services.AddScoped<IUserRepository, UserRepository>(provider => new User
 builder.Services.AddScoped<IUserService, UserService>(provider => new UserService(provider.GetRequiredService<IUserRepository>()));
 
 // Configure CORS policy to allow requests from any origin, method, and header
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("CorsPolicy",
-        builder => builder
-            .AllowAnyOrigin()    // Allow any origin
-            .AllowAnyMethod()    // Allow any method
-            .AllowAnyHeader());  // Allow any header
-});
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("CorsPolicy",
+//         builder => builder
+//             .AllowAnyOrigin()    // Allow any origin
+//             .AllowAnyMethod()    // Allow any method
+//             .AllowAnyHeader());  // Allow any header
+// });
 
 // Create an instance of the IEnvs interface to retrieve the secret key
 IEnvs envs = builder.Services.BuildServiceProvider().GetRequiredService<IEnvs>();
@@ -113,7 +113,7 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiBaseNetCore V1");
-    c.DocExpansion(DocExpansion.None);
+    c.DocExpansion(DocExpansion.None); // Collapse all sections by default
     c.DisplayRequestDuration();
 });
 
@@ -131,6 +131,7 @@ app.UseAuthorization();
 
 // Map the controllers
 app.MapControllers();
+
 
 // Run the application
 app.Run();
