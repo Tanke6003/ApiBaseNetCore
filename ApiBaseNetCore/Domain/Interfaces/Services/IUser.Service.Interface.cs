@@ -1,7 +1,7 @@
 
-using Domain.Dtos;
+using ApiBaseNetCore.Domain.Dtos;
 
-namespace Application.Interfaces
+namespace ApiBaseNetCore.Domain.Interfaces.Services
 {
     public interface IUserService
     {

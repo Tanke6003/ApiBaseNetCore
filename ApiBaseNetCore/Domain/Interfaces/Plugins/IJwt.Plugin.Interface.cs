@@ -1,5 +1,6 @@
 
-using Domain.Dtos;
+using ApiBaseNetCore.Domain.Dtos;
+
 
 namespace ApiBaseNetCore.Infrastructure.Interfaces
 {

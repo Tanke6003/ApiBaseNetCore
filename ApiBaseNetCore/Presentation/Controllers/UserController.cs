@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Application.Interfaces;
+
+using ApiBaseNetCore.Domain.Dtos;
+using ApiBaseNetCore.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,10 +18,10 @@ namespace ApiBaseNetCore.Presentation.Controllers
       
         [Authorize]
         [HttpGet("GetAllUsers")]
-        public ActionResult<List<Domain.Dtos.UserDto>> GetAllUsers(){
+        public ActionResult<List<UserDto>> GetAllUsers(){
             try
             {
-                List<Domain.Dtos.UserDto> users = _userService.GetUsers();
+                List<UserDto> users = _userService.GetUsers();
                 return Ok(users);
 
 

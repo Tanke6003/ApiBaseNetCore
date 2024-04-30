@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Mvc;
 using ApiBaseNetCore.Infrastructure.Interfaces;
 using ApiBaseNetCore.Infrastructure.Plugins;
 using ApiBaseNetCore.Infrastructure.Interfaces.plugins;
+using ApiBaseNetCore.Domain.Interfaces.Services;
+using ApiBaseNetCore.Domain.Dtos;
 
 namespace ApiBaseNetCore.Presentation.Controllers
 {
@@ -15,9 +13,11 @@ namespace ApiBaseNetCore.Presentation.Controllers
     public class TestController : ControllerBase
     {
         IEncrypt _encrypt;
-        public TestController(IEncrypt encrypt)
+        IAuthService _authService;
+        public TestController(IEncrypt encrypt, IAuthService authService)
         {
             _encrypt = encrypt;
+            _authService = authService;
         }
 
         [HttpGet("Encrypt")]
@@ -51,16 +51,25 @@ namespace ApiBaseNetCore.Presentation.Controllers
         {
             try
             {
-                IEnvs _envs = new Envs();
-                IJwt _jwt = new JWTPlugin();
-                string result = _jwt.GenerateToken(new Domain.Dtos.JWTOptionsDto
-                {
-                    UserId = 1,
-                    NTUser = "NTUser",
-                    RoleId = 1,
-                    ExpireDate = DateTime.Now.AddHours(1),
-                    SecretKey = _envs.GetEnv("SecretKey")
-                });
+                string result = "";
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost("Login")]
+        public ActionResult Login(string username, string password)
+        {
+            try
+            {
+               
+                string result = _authService.Login(username, password, out string exceptionMessage);
+                if(exceptionMessage != "")
+                    return BadRequest(exceptionMessage);
+                if (result == null)
+                    return BadRequest(exceptionMessage);
                 return Ok(result);
             }
             catch (Exception ex)

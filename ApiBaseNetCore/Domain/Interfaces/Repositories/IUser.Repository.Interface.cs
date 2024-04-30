@@ -1,10 +1,12 @@
 
-using Domain.Dtos;
+using ApiBaseNetCore.Domain.Dtos;
 
-namespace ApiBaseNetCore.Infrastructure.Interfaces.Repository{
+namespace ApiBaseNetCore.Domain.Interfaces.Repository{
     public interface IUserRepository{
         
-        List<UserDto> GetUsers();
+        List<UserDto> GetUsers(out string exceptionMessage);
+
+        UserDto GetUserById(int id, out string exceptionMessage);
 
     }
 }

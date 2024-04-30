@@ -1,8 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using ApiBaseNetCore.Domain.Dtos;
 using ApiBaseNetCore.Infrastructure.Interfaces;
-using Domain.Dtos;
+using ApiBaseNetCore.Infrastructure.Interfaces.plugins;
 
 using Microsoft.IdentityModel.Tokens;
 
@@ -10,11 +11,14 @@ namespace ApiBaseNetCore.Infrastructure.Plugins
 {
     public class JWTPlugin : IJwt
     {
-
+        
       
         public string GenerateToken(JWTOptionsDto options)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
+            IEnvs env = new Envs();
+            if(options.SecretKey==null||options.SecretKey=="")
+                options.SecretKey = env.GetEnv("SecretKey");
             // add personalized Claims
             var claims = new List<Claim>
             {

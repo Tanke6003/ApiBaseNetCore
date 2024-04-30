@@ -1,17 +1,19 @@
 using ApiBaseNetCore.Infrastructure.Interfaces;
-using ApiBaseNetCore.Infrastructure.Interfaces.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Application.Services;
-using Application.Interfaces;
+
 using ApiBaseNetCore.Infrastructure.Interfaces.plugins;
 using ApiBaseNetCore.Infrastructure.Plugins;
 using ApiBaseNetCore.Infractructure.Plugins;
 using ApiBaseNetCore.Infrastructure.Repository;
-using ApiBaseNetCore.Infrastructure.Interfaces.Repository;
+using ApiBaseNetCore.Domain.Interfaces.Repository;
+using ApiBaseNetCore.Domain.Interfaces.Services;
+using ApiBaseNetCore.Application.Services;
+using ApiBaseNetCore.Domain.Interfaces.Repositories;
+using ApiBaseNetCore.Domain.Interfaces.Plugins;
 // Create a new web application
 var builder = WebApplication.CreateBuilder(args);
 // do a function to get server, database, user and password from environment variables
@@ -20,12 +22,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IEnvs, Envs>(provider => new Envs());
 builder.Services.AddScoped<IConnectionDB, MsSqlConnectionDB>(provider => new MsSqlConnectionDB(provider.GetRequiredService<IEnvs>().GetConnectionString("ManufacturingPortal")));
 builder.Services.AddScoped<IEncrypt, Encrypt64>(provider => new Encrypt64());
-
+builder.Services.AddScoped<IJwt, JWTPlugin>(provider => new JWTPlugin());
+builder.Services.AddScoped<IDirectoryService, DirectoryService>(provider => new DirectoryService());
 // Add Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>(provider => new UserRepository(provider.GetRequiredService<IConnectionDB>()));
-
+builder.Services.AddScoped<IAuthRepository, AuthRepository>(provider => new AuthRepository(provider.GetRequiredService<IJwt>(), provider.GetRequiredService<IDirectoryService>()));
 // Add Services
 builder.Services.AddScoped<IUserService, UserService>(provider => new UserService(provider.GetRequiredService<IUserRepository>()));
+builder.Services.AddScoped<IAuthService, AuthService>(provider => new AuthService(provider.GetRequiredService<IEnvs>(), provider.GetRequiredService<IAuthRepository>()));
 
 // Configure CORS policy to allow requests from any origin, method, and header
 // builder.Services.AddCors(options =>
@@ -38,7 +42,7 @@ builder.Services.AddScoped<IUserService, UserService>(provider => new UserServic
 // });
 
 // Create an instance of the IEnvs interface to retrieve the secret key
-IEnvs envs = builder.Services.BuildServiceProvider().GetRequiredService<IEnvs>();
+var envs = builder.Services.BuildServiceProvider().GetRequiredService<IEnvs>();
 
 // Configure JWT authentication
 builder.Services.AddAuthentication(options =>

@@ -1,11 +1,12 @@
 
+using ApiBaseNetCore.Domain.Dtos;
+using ApiBaseNetCore.Domain.Interfaces.Repository;
+using ApiBaseNetCore.Domain.Interfaces.Services;
 
-using ApiBaseNetCore.Infrastructure.Interfaces.Repository;
-using Application.Interfaces;
-using Domain.Dtos;
 
 
-namespace Application.Services
+
+namespace ApiBaseNetCore.Application.Services
 {
     public class UserService : IUserService
     {
@@ -16,11 +17,13 @@ namespace Application.Services
         }
         
         public List<UserDto> GetUsers()
-        {
+        {   string exceptionMessage = string.Empty;
             List<UserDto> users = new List<UserDto>();
             try
             {
-                users = _userRepository.GetUsers();
+                users = _userRepository.GetUsers(out exceptionMessage);
+                if (exceptionMessage != "")
+                    throw new Exception(exceptionMessage);
                 return users;
             }
             catch (Exception ex)
