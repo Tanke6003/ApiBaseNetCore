@@ -20,7 +20,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add Plugins
 builder.Services.AddScoped<IEnvs, Envs>(provider => new Envs());
-builder.Services.AddScoped<IConnectionDB, MsSqlConnectionDB>(provider => new MsSqlConnectionDB(provider.GetRequiredService<IEnvs>().GetConnectionString("ManufacturingPortal")));
+builder.Services.AddScoped<IConnectionDB, MsSqlConnectionDB>(provider => new MsSqlConnectionDB(provider.GetRequiredService<IEnvs>().GetConnectionString("MyDB")));
 builder.Services.AddScoped<IEncrypt, Encrypt64>(provider => new Encrypt64());
 builder.Services.AddScoped<IJwt, JWTPlugin>(provider => new JWTPlugin());
 builder.Services.AddScoped<IDirectoryService, DirectoryService>(provider => new DirectoryService());
